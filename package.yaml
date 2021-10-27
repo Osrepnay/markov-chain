@@ -1,0 +1,54 @@
+name:                markov-chain
+version:             0.1.0.0
+github:              "Osrepnay/markov-chain"
+license:             MIT
+author:              "Osrepnay"
+maintainer:          "example@example.com"
+copyright:           "2021 Osrepnay"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Osrepnay/markov-chain#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- hashable
+- transformers
+- text
+- random
+- unordered-containers
+
+library:
+  source-dirs: src
+
+executables:
+  markov-chain-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - markov-chain
+
+tests:
+  markov-chain-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - markov-chain
